@@ -1,0 +1,28 @@
+#########################################
+#Datum:13.06.2019			#
+#Autor: Michael Schulz			#
+#					#
+#					#
+#					#
+#					#
+#Anleitung zum starten Inventory	#
+#					#
+#					#
+#########################################
+
+1.Benutzen sie die auf dem Stick mitgelieferte invtoemp.ps1 
+
+2.Rechte Maustaste Ausführen in Powershell
+
+3.Waehlen Sie was gemacht werden soll 
+	[1]Inventory Anwendung ausführen
+	[2]Daten zum Empirum-Server übertragen
+
+4.Anwendung schließt selbstständig. 
+
+Erklärung Ordner: 
+./InvScan - > Hier werden alle ITPC.....xml PCs nach dem Scan abgelegt. 
+./InvScan/_Backup - > Hier werden nach der erfolgreichen Uebertragung Sicherungen mit Datum hinterlegt. 
+
+
+
