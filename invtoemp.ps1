@@ -30,8 +30,8 @@ $abfrage = Read-Host "Was soll gemacht werden? [1] -> PC Inventory starten [2] -
 if($abfrage -eq 1 ){
 #aktuelle Pfad steht in $installpath
 $installpath = Get-ScriptDirectory
-$softwarepath = "_Full.bat"
-$aufruf = $installpath + $softwarepath
+#$softwarepath = "_Full.bat"
+$aufruf = -join ("$installpath","_Full.bat")
 
 Start-Process -Wait $aufruf #| out-file D:\ScanOrdner\$env:computername.xml#OLD!!
 
@@ -40,12 +40,13 @@ else{
 if($abfrage -eq 2){
 #Daten kopieren zum Empirumserver anschließend Backup
 
-$quelle = "D:\InvScan"
+$quelle =  -join ("$installpath","InvScan")
 $dirempirum = "\\ITESX0105\empinv$"
-$dirbackup = "D:\InvScan\_Backup"
-$datum = Get-Date -Format yyyyMMdd 
+$dirbackup = -join ("$installpath","InvScan","\_Backup")
+$datum = Get-Date -Format yyyyMMdd
+$copypath = -join ("$installpath","InvScan","\*.xml")
 
-$dateien = Get-ChildItem -Path D:\InvScan\*.xml
+$dateien = Get-ChildItem -Path $copypath
 
 foreach($datei in $dateien){
     Copy-Item $datei.FullName -Destination $dirempirum
